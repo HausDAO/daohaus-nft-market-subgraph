@@ -1,0 +1,7 @@
+specVersion: 0.0.2
+description: DAOHaus NFT Market Subgraph
+repository: https://github.com/hausdao/daohaus-nft-market-subgraph
+schema:
+  file: ./schema.graphql
+dataSources: []
+templates: []

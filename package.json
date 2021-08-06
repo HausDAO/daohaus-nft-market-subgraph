@@ -1,0 +1,25 @@
+{
+  "name": "daohaus-boosts",
+  "version": "0.1.0",
+  "scripts": {
+    "create": "graph create odyssy-automaton/daohaus-boosts --node https://api.thegraph.com/deploy/",
+    "codegen": "graph codegen",
+    "build": "graph build",
+    "deploy-main": "node manifests/deploy-prep.js mainnet && graph deploy --node https://api.thegraph.com/deploy/ --ipfs https://api.thegraph.com/ipfs/ odyssy-automaton/daohaus-nft-market",
+    "deploy-kovan": "node manifests/deploy-prep.js kovan && graph deploy --node https://api.thegraph.com/deploy/ --ipfs https://api.thegraph.com/ipfs/ odyssy-automaton/daohaus-nft-market-kovan",
+    "deploy-rinkeby": "node manifests/deploy-prep.js rinkeby && graph deploy --node https://api.thegraph.com/deploy/ --ipfs https://api.thegraph.com/ipfs/ odyssy-automaton/daohaus-nft-market-rinkeby",
+    "deploy-xdai": "node manifests/deploy-prep.js xdai && graph deploy --node https://api.thegraph.com/deploy/ --ipfs https://api.thegraph.com/ipfs/ odyssy-automaton/daohaus-nft-market-xdai",
+    "deploy-matic": "node manifests/deploy-prep.js matic && graph deploy --node https://api.thegraph.com/deploy/ --ipfs https://api.thegraph.com/ipfs/ odyssy-automaton/daohaus-nft-market-matic",
+    "create-local": "graph create odyssy-automaton/daohaus-boosts --node http://127.0.0.1:8020",
+    "deploy-local": "graph deploy odyssy-automaton/daohaus-boosts --ipfs http://localhost:5001 --node http://127.0.0.1:8020"
+  },
+  "devDependencies": {
+    "@graphprotocol/graph-cli": "^0.19.0",
+    "@graphprotocol/graph-ts": "^0.19.0"
+  },
+  "dependencies": {
+    "babel-polyfill": "^6.26.0",
+    "babel-register": "^6.26.0",
+    "js-yaml": "^3.13.1"
+  }
+}

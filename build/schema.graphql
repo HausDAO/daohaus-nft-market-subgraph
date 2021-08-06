@@ -1,0 +1,12 @@
+type Order @entity {
+  id: ID!
+  active: Boolean!
+  filled: Boolean!
+  seller: Bytes!
+  price: BigInt!
+  saleToken: Bytes!
+  nftAddress: Bytes!
+  tokenId: BigInt!
+  alternateReceiver: Bytes!
+  details: String
+}

@@ -1,0 +1,33 @@
+specVersion: 0.0.2
+description: DAOHaus NFT Market Subgraph
+repository: 'https://github.com/hausdao/daohaus-nft-market-subgraph'
+schema:
+  file: ./schema.graphql
+dataSources:
+  - kind: ethereum/contract
+    name: NftSale
+    network: rinkeby
+    source:
+      address: '0xc0BC16c09b2Bf8AACe917c897A00751f6f798590'
+      abi: NftSale
+      startBlock: 9059333
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.4
+      language: wasm/assemblyscript
+      entities:
+        - Order
+      abis:
+        - name: NftSale
+          file: ./abis/NftSale.json
+      eventHandlers:
+        - event: >-
+            SetOrder(indexed
+            address,uint256,uint256,address,address,address,string)
+          handler: handleSetOrder
+        - event: 'FillOrder(indexed address,uint256,address,address,address,uint256)'
+          handler: handleFillOrder
+        - event: 'CloseOrder(address,uint256)'
+          handler: handleCloseOrder
+      file: ./src/nft-sale-mappings.ts
+templates: []
